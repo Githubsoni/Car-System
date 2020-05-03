@@ -1,0 +1,56 @@
+const Car = require('../Modelscar/Car')
+
+const index1 = (req, res, next) => {
+    Car.find()
+
+    .then(response => {
+        res.json({
+            response
+        })
+    })
+
+    .catch(error => {
+        res.json({
+            message: 'An error occured!'
+        })
+    })
+}
+ 
+//showing userdetails
+const show1 = (req, res, next) => {
+    let Car  = req.body.Carid
+    Car.findById(Carid)
+    .then(response => {
+        res.json({
+            response
+        })
+    })
+    .catch(error =>  {
+        res.json({
+            message: 'An erroe occured!'
+        })
+    })
+}
+
+// add new car
+const store1  = (req, res, next) => {
+    let car = new Car({
+        name:           req.body.name,
+        date:           req.body.date,
+        seatavial:      req.body.seatavial,
+        timing:         req.body.timing
+    })
+
+    car.save()
+
+       .then(response => {
+           res.json({
+               message: 'user Added successfully!'
+           })
+       })
+       .catch(error => {
+           res.json({
+               message: 'An error occured!'
+           })
+       })
+}
