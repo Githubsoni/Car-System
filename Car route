@@ -1,0 +1,10 @@
+const express   = require('express')
+const router    = express.Router()
+
+const UserController   = require('../controllerscar/CARController') 
+
+router.get('/',UserController.index1)
+router.post('/show1',UserController.show1)
+router.post('/store1',UserController.store1)
+
+module.exports = router
